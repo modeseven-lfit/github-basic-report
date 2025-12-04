@@ -265,12 +265,10 @@ def format_contributors(
         return "None"
 
     lines = []
-    labels = ["most", "second most", "third most"]
 
     for idx, (name, email, count) in enumerate(contributors):
         username = get_github_username(email, headers)
-        label = labels[idx] if idx < len(labels) else "commits"
-        lines.append(f"{name}/{username}/{email} ({label} commits)")
+        lines.append(f"{name}/{username}/{email}")
 
     return "<br>".join(lines)
 
